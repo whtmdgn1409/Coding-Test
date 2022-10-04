@@ -1,0 +1,22 @@
+def solution(N, stages):
+    answer = []
+    s = []
+    users_num = len(stages)
+    
+    for i in range(1,N+1):
+        c = 0
+        for j in range(len(stages)):
+            if stages[j] == i:
+                c += 1
+        if c == 0:
+            s.append(0)
+        else:
+            s.append(c/users_num)
+        users_num -= c
+    
+    a = sorted(s,reverse=True)
+    
+    for i in range(len(a)):
+        answer.append(s.index(a[i])+1)
+        s[s.index(a[i])] = 2
+    return answer
