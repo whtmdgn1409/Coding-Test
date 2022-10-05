@@ -1,0 +1,8 @@
+def solution(arr1, arr2):
+    answer = []
+    for i in range(len(arr1)):
+        sum = []
+        for j in range(len(arr1[i])):
+            sum.append(int(arr1[i][j]) + int(arr2[i][j]))
+        answer.append(sum)            #1차원 배열 안에 1차원 배열을 추가하는 느낌
+    return answer
