@@ -1,0 +1,8 @@
+def solution(arr):
+    answer = 0
+    avg = 0
+    for i in arr:
+        answer += int(i)
+        avg += 1
+    answer = answer / avg
+    return answer
