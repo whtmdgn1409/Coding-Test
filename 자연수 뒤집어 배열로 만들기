@@ -1,0 +1,7 @@
+def solution(n):
+    answer = []
+    n = str(n)      #"12345"
+    for i in n:
+        answer.append(int(i))
+    answer = answer[::-1]
+    return answer
