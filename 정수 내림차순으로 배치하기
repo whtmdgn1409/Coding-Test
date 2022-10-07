@@ -1,0 +1,6 @@
+def solution(n):
+    n= list(str(n)) #문자열로 바꾼 n을 리스트로 변환 []
+    n = sorted(n, reverse=True) #sorted(n, reverse=True) -> 내림차순 정렬
+    n= ''.join(n) #내림차순 정렬된 리스트 n을 하나의 문자열로 합침
+    n= int(n) #문자열 n을 정수화함
+    return n
