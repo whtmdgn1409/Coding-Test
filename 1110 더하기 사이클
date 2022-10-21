@@ -1,0 +1,13 @@
+N = int(input())
+com_N = N
+cnt = 0
+while(True):
+    a = com_N // 10
+    b = com_N % 10
+    c = (a+b) % 10
+    com_N = (b*10) + c
+
+    cnt += 1
+    if(com_N == N):
+        print(cnt)
+        break
