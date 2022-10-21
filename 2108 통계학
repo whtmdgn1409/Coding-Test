@@ -1,0 +1,19 @@
+from collections import Counter
+import sys
+
+n = int(input())
+numbers = []
+for i in range(n):
+    numbers.append(int(sys.stdin.readline()))
+print(round(sum(numbers)/n)) # 1. 산술평균
+numbers.sort()
+print(numbers[n//2])  # 2. 중앙값
+numbers_a = Counter(numbers).most_common()        # 3. 최빈값
+if len(numbers_a) > 1:
+    if numbers_a[0][1] == numbers_a[1][1]:
+        print(numbers_a[1][0])
+    else:
+        print(numbers_a[0][0])
+else:
+    print(numbers_a[0][0])
+print(max(numbers)-min(numbers)) # 4. 범위
