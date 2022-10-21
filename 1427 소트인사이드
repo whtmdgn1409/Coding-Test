@@ -1,0 +1,8 @@
+N = int(input())
+list_num = list(str(N))
+list_num.sort(reverse=True)
+
+num = ''
+for i in range(len(list_num)):
+    num += list_num[i]
+print(int(num))
