@@ -1,0 +1,14 @@
+import sys
+
+n = int(sys.stdin.readline())
+char_str = []
+
+for i in range(n):
+    char_str.append(sys.stdin.readline().strip())
+set_list = set(char_str)
+char_str = list(set_list)
+char_str.sort()
+char_str.sort(key = len)
+
+for i in char_str:
+    print(i)
