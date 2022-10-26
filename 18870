@@ -1,0 +1,7 @@
+import sys
+n = int(sys.stdin.readline())
+a = list(map(int, sys.stdin.readline().split()))
+new_a = sorted(set(a))                                 
+dictionary = {new_a[i] : i for i in range(len(new_a))}
+for i in a:                         
+    print(dictionary[i], end = ' ') 
