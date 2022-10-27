@@ -1,0 +1,16 @@
+import sys
+N = int(input())
+numbers = []
+for _ in range(N):
+    numbers.append(list(map(int, sys.stdin.readline().split())))
+for i in range(N):
+    cnt = 0
+    K = numbers[i][0]
+    sum_n = sum(numbers[i]) - K
+    standard = int(sum_n / K)
+    for j in range(1,K+1):
+        if numbers[i][j] > standard:
+            cnt += 1
+    ard = (cnt/K)*100
+    print(format(ard, ".3f"),end="")
+    print("%")
