@@ -1,0 +1,34 @@
+import copy
+
+def recur(array, n):
+    if len(array) == n:
+        operator_list.append(copy.deepcopy(array))
+        return
+
+    array.append(' ')
+    recur(array, n)
+    array.pop()
+
+    array.append('+')
+    recur(array, n)
+    array.pop()
+
+    array.append('-')
+    recur(array, n)
+    array.pop()
+
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    operator_list = []
+    recur([],n-1)
+    integer = [i for i in range(1,n+1)]
+
+    for operator in operator_list:
+        string = ""
+        for i in range(n-1):
+            string += str(integer[i])+operator[i]
+        string += str(integer[-1])
+        if eval(string.replace(' ','')) == 0:
+            print(string)
+    print()
