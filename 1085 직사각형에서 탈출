@@ -1,0 +1,16 @@
+x, y, w, h = map(int, input().split())
+
+if x < w-x:
+    X = x
+else:
+    X = w-x
+
+if y < h-y:
+    Y = y
+else:
+    Y = h-y
+
+if X < Y:
+    print(X)
+else:
+    print(Y)
