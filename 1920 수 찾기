@@ -1,0 +1,27 @@
+F = int(input())
+F_num = set(map(int, input().split())) #F_num = list(map(int, input().split()))
+S = int(input())
+S_num = list(map(int, input().split()))
+# F_num.sort()
+#
+#
+# for num in S_num:
+#     lt, rt = 0, F - 1
+#     isExist = False
+#
+#     while lt <= rt:
+#         mid = (lt + rt) // 2
+#         if num == F_num[mid]:
+#             isExist = True
+#             print(1)
+#             break
+#         elif num > F_num[mid]:
+#             lt = mid + 1
+#         else:
+#             rt = mid - 1
+#
+#     if not isExist:
+#         print(0)
+#
+for num in S_num:
+    print(1) if num in F_num else print(0)
