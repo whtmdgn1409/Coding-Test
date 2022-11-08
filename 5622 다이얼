@@ -1,0 +1,24 @@
+def alphabet(s):
+    if s == 'A' or s == 'B' or s == 'C':
+        return 3
+    elif s == 'D' or s == 'E' or s == 'F':
+        return 4
+    elif s == 'G' or s == 'H' or s == 'I':
+        return 5
+    elif s == 'J' or s == 'K' or s == 'L':
+        return 6
+    elif s == 'M' or s == 'N' or s == 'O':
+        return 7
+    elif s == 'P' or s == 'Q' or s == 'R' or s == 'S':
+        return 8
+    elif s == 'T' or s == 'U' or s == 'V':
+        return 9
+    elif s == 'W' or s == 'X' or s == 'Y' or s == 'Z':
+        return 10
+
+word = list(str(input()))
+sum = 0
+
+for s in word:
+    sum += alphabet(s)
+print(sum)
