@@ -1,0 +1,75 @@
+function solution(board) {
+  let dx = [-1, 0, 1, 0]
+  let dy = [0, 1, 0, -1]
+  let answer = 0
+
+  for (let x = 0; x < board.length; x++) {
+    for (let y = 0; y < board.length; y++) {
+      let flag = 0
+
+      // x가 첫 번째 행일때
+
+      if (x === 0) {
+        // y도 첫 번째 열이면
+        if (y === 0) {
+          for (let k = 1; k < 3; k++) {
+            if (board[x][y] <= board[x + dx[k]][y + dy[k]]) flag = 1
+          }
+        }
+        //y가 마지막 열이면
+        else if(y === board.length - 1) {
+          for (let k = 2; k < 4; k++) {
+            if (board[x][y] <= board[x + dx[k]][y + dy[k]]) flag = 1
+          }
+        }
+        // 그 외
+        else {
+          for (let k = 1; k < 4; k++) {
+            if (board[x][y] <= board[x + dx[k]][y + dy[k]]) flag = 1
+          }
+        }
+      }
+      // x가 마지막 행일 때
+      else if(x === board.length - 1) {
+        // y가 첫 번째 열이면
+        if (y === 0) {
+          for (let k = 0; k < 2; k++) {
+            if (board[x][y] <= board[x + dx[k]][y + dy[k]]) flag = 1
+          }
+        }
+        // y가 마지막 열이면
+        else if(y === board.length - 1) {
+            if (board[x][y] <= board[x + dx[0]][y + dy[0]]) flag = 1
+            if (board[x][y] <= board[x + dx[3]][y + dy[3]]) flag = 1
+        }
+        //그 외
+        else {
+          if (board[x][y] <= board[x + dx[0]][y + dy[0]]) flag = 1
+          if (board[x][y] <= board[x + dx[1]][y + dy[1]]) flag = 1
+          if (board[x][y] <= board[x + dx[3]][y + dy[3]]) flag = 1
+        }
+      }
+      // 그 외
+      else {
+        for (let k = 0; k < 4; k++) {
+          if (board[x][y] <= board[x + dx[k]][y + dy[k]]) flag = 1
+        }
+      }
+
+      if (flag === 0) answer++;
+    }
+  }
+  console.log(answer)
+}
+
+
+board = [[11, 15, 17, 23, 13, 5, 12],
+[25, 18, 11, 16, 21, 7, 22],
+[37, 13, 17, 22, 14, 11, 33],
+[35, 27, 38, 34, 31, 22, 12],
+[38, 22, 33, 21, 25, 33, 11],
+[11, 33, 12, 13, 26, 35, 12],
+[17, 22, 23, 11, 15, 13, 21]]
+
+
+solution(board)
