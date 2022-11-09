@@ -1,0 +1,33 @@
+function solution(nums){
+  let lst = [];
+  let crossSum1 = 0;
+  let crossSum2 = 0;
+  let colSumMax = 0;
+  let rowSumMax = 0;
+  for(let i = 0; i < nums.length; i++){
+    crossSum1 += nums[i][i];
+    crossSum2 += nums[i][nums.length-i-1];
+    let colSum = 0;
+    let rowSum = 0;
+    for(let j = 0 ; j < nums.length; j++){
+      rowSum += nums[i][j];
+      colSum += nums[j][i];
+      if(rowSum > rowSumMax) rowSumMax = rowSum
+      if(colSum > colSumMax) colSumMax = colSum
+    }
+  }
+  lst.push(crossSum1)
+  lst.push(crossSum2)
+  lst.push(rowSumMax)
+  lst.push(colSumMax)
+  console.log(Math.max(...lst))
+}
+
+nums = [[57, 65, 22, 33, 11, 11],
+[15, 66, 77, 34, 21, 13],
+[55, 12, 11, 55, 11, 55],
+[54, 33, 66, 88, 11, 22],
+[88, 99, 12, 16, 18, 33],
+[11, 100, 22, 68, 88, 17]]
+
+solution(nums)
