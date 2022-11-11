@@ -1,0 +1,14 @@
+function solution(N, K){
+  queue = []
+  for(let i = 1; i < N + 1; i++){
+    queue.push(i)
+  }
+  while(queue.length > 1){
+    for(let j = 0; j < K - 1; j++){
+      queue.push(queue.shift())
+    }
+    queue.shift()
+  }
+  return queue[0]
+}
+console.log(solution(8, 3))
