@@ -1,0 +1,19 @@
+function solution(n){
+    let answer = 0;
+    let sum = 0;
+    let lt = 0;
+    let mid = Math.ceil(n / 2);
+    let nums = Array.from({length:mid}, (v, i)=> i + 1);
+
+    for(let rt = 0; rt < mid; rt++){
+        sum += nums[rt];
+        while(sum > n){
+            sum -= nums[lt]
+            lt++;
+        }
+        if(sum === n) answer++
+    }
+    return answer
+}
+
+console.log(solution(15))
