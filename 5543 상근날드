@@ -1,0 +1,12 @@
+ham = []
+dri = []
+ham.append(int(input()))
+ham.append(int(input()))
+ham.append(int(input()))
+dri.append(int(input()))
+dri.append(int(input()))
+
+ham.sort()
+dri.sort()
+
+print(ham[0] + dri[0] - 50)
