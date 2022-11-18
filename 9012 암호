@@ -1,0 +1,19 @@
+T = int(input())
+
+for _ in range(T):
+    answer = "YES"
+    stack = []
+    while(True):
+        V = list(str(input()))
+        for i in range(len(V)):
+            if V[i] == "(":
+                stack.append(V[i])
+            else:
+                if len(stack) == 0:
+                    answer = "NO"
+                else:
+                    stack.pop()
+        if len(stack) > 0:
+            answer = "NO"
+        print(answer)
+        break
