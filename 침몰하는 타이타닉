@@ -1,0 +1,19 @@
+function solution(nums, m){
+    let left = 0
+    let right = nums.length - 1;
+    let cnt = 0;
+    nums.sort((a, b) => (a - b));
+    while(left <= right){
+      if(nums[right] + nums[left] > m){
+        cnt++;
+        right--;
+      }
+      else {
+        cnt++;
+        left++;
+        right--;
+      }
+    }
+    return cnt;
+  }
+  console.log(solution([90, 50, 70, 100, 60], 140))
