@@ -1,0 +1,29 @@
+function solution(nums, c){
+    let answer = 0;
+    nums = nums.sort((a,b) => (a - b));
+    let left = 1;
+    let right = Math.max(...nums);
+  
+    function Count(mid){
+      let cnt = 1;
+      let endP = nums[0];
+      for(let i = 1; i < nums.length; i++){
+        if((nums[i] - endP) >= mid){
+          cnt++;
+          endP = nums[i];
+        }
+      }
+      return cnt;
+    }
+    
+    while(left <= right){
+      let mid = parseInt((left + right) / 2);
+      if(Count(mid) >= c){
+        answer = mid;
+        left = mid + 1;
+      }
+      else right = mid - 1;
+    }
+    return answer;
+  }
+  console.log(solution([5, 9, 10, 12, 14, 15], 3))
