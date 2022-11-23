@@ -1,0 +1,30 @@
+function solution(board){
+    let answer = 0;
+    let left = 1, right = 0, sum = 0;
+  
+    board.forEach(e => {
+      right = Math.max(right, Math.max(...e));
+      sum += e.reduce((a, b) => (a + b));
+    });
+    function Count(mid){
+      let cnt = 0;
+      board.forEach(e => {
+        for(let i = 0; i < e.length; i++){
+          if(e[i] >= mid) cnt += mid;
+          else if(e[i] < mid) cnt += e[i];
+        }
+      })
+      return cnt;
+    }
+    while(left <= right){
+      let mid = parseInt((left + right) / 2)
+      if(Count(mid) >= sum/2){
+        answer = mid;
+        right = mid - 1;
+      }
+      else left = mid + 1;
+    }
+    return answer
+  }
+  
+  console.log(solution([[2, 3, 1, 5, 6], [3, 0, 7, 4, 3], [8, 5, 7, 5, 6], [9, 6, 1, 5, 5], [5, 5, 8, 5, 1]]));
