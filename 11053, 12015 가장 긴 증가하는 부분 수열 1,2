@@ -19,4 +19,6 @@ for case in cases:
       else:
         right = mid
     lst[right] = case
-print(len(lst) - 1)
+print(len(lst) - 1))
+
+코드 참고 : https://jainn.tistory.com/90
