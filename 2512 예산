@@ -1,0 +1,21 @@
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+val = list(map(int, input().split()))
+total = int(input())
+left, right = 0, max(val)
+
+while left <= right:
+    sum = 0
+    mid = (left + right) // 2
+    for s in val:
+        if s >= mid:
+            sum += mid
+        else:
+            sum += s
+    if sum > total:
+        right = mid - 1
+    else:
+        left = mid + 1
+print(right)
