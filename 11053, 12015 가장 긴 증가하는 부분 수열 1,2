@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+cases = list(map(int, input().split()))
+lst = [0]
+
+for case in cases:
+  if lst[-1] < case:
+    lst.append(case)
+  else:
+    left = 0
+    right = len(lst)
+
+    while left < right:
+      mid = (left + right) // 2
+      if lst[mid] < case:
+        left = mid + 1
+      else:
+        right = mid
+    lst[right] = case
+print(len(lst) - 1)
