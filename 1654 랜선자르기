@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline
+
+
+line = []
+K, N = map(int, input().split())
+
+for _ in range(K):
+    line.append(int(input()))
+
+left, right = 0, max(line)
+
+while left <= right:
+    SUM = 0
+    mid = (left + right) // 2
+    for i in range(K):
+        SUM += line[i] // mid
+    if SUM < N:
+        right = mid - 1
+    else:
+        left = mid + 1
+print(right)
