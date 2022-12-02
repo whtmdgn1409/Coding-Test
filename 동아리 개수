@@ -1,0 +1,39 @@
+function solution(n, edge) {
+  let answer = 0;
+  let graph = Array.from(Array(n + 1), () => Array());
+  let ch = Array(n + 1).fill(0);
+  for (let [start, end] of edge) {
+    graph[start].push(end);
+    graph[end].push(start);
+  }
+  function DFS(v) {
+    for (let nv of graph[v]) {
+      if (ch[nv] === 0) {
+        ch[nv] = 1;
+        DFS(nv);
+      }
+    }
+  }
+  for (let i = 1; i < n + 1; i++) {
+    if (ch[i] === 0) {
+      answer++;
+      ch[i] = 1;
+      DFS(i);
+    }
+  }
+  return answer;
+}
+
+console.log(
+  solution(11, [
+    [1, 2],
+    [1, 4],
+    [2, 3],
+    [4, 5],
+    [5, 6],
+    [7, 8],
+    [7, 10],
+    [8, 9],
+    [10, 11],
+  ])
+);
