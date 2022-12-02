@@ -1,0 +1,34 @@
+N = int(input())
+board = []
+for i in range(N):
+    a = list(input())
+    board.append(a)
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+cnt = 0
+house = 0
+house_stack = []
+def dfs(x, y):
+    global house
+    house += 1
+    for k in range(4):
+        nx = x + dx[k]
+        ny = y + dy[k]
+        if nx >= 0 and ny >= 0 and nx < N and ny < N and board[nx][ny] == '1':
+            board[nx][ny] = '0'
+
+            dfs(nx, ny)
+
+for i in range(N):
+    for j in range(N):
+        if board[i][j] == '1':
+            cnt += 1
+            board[i][j] = '0'
+            dfs(i, j)
+            house_stack.append(house)
+            house = 0
+
+print(cnt)
+house_stack.sort()
+for i in house_stack:
+    print(i)
