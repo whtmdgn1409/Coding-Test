@@ -1,0 +1,22 @@
+function solution(ingredient) {
+    let answer = 0;
+    let stack = [];
+    
+    ingredient.forEach((ing, idx) => {
+        stack.push(ing);
+        
+        if(stack.length >= 4){
+            const num = stack.slice(-4).join("");
+            if(num === "1231") {
+                stack.pop();
+                stack.pop();
+                stack.pop();
+                stack.pop();
+                answer++;
+            }
+            
+        }
+    })
+    
+    return answer;
+}
