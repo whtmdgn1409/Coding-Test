@@ -1,0 +1,36 @@
+function solution(board){
+    let answer=0;
+    let n=board.length;
+    let lt=1, rt=0, sum=0;
+    board.forEach(e => {
+        rt=Math.max(rt, Math.max(...e));
+        sum+=e.reduce((a, b)=>a+b);
+    });
+    function Count(m){
+        let cnt=0;
+        for(let i=0; i<n; i++){
+            for(let j=0; j<n; j++){
+                if(board[i][j]>=m) cnt+=m;
+                else cnt+=board[i][j];
+            }
+        }
+        return cnt;
+    }
+    while(lt<=rt){
+        let m=parseInt((lt+rt)/2);
+        if(Count(m)>=(sum/2)){
+            answer=m;
+            rt=m-1;
+        }
+        else{
+            lt=m+1;
+        }
+    }
+    return answer;
+}
+let arr=[[2, 3, 1, 5, 6], 
+        [3, 0, 7, 4, 3],
+        [8, 5, 7, 5, 6],
+        [9, 6, 1, 5, 5],
+        [5, 5, 8, 5, 1]];
+console.log(solution(arr));

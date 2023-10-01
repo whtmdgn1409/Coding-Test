@@ -1,0 +1,17 @@
+function solution(nums) {
+	let n=nums.length;
+    let answer = Array(n).fill(0);
+	for(let i=0; i<n-1; i++){
+		let minIndex=i;
+		for(let j=i+1; j<n; j++){
+			if(nums[j]<nums[minIndex]) minIndex=j;
+		}
+		if(i!==minIndex){
+			[nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
+			answer[i]++;
+			answer[minIndex]++;
+		}
+	}
+	return answer;        
+}    
+console.log(solution([1, 2, 3, 4, 5]));

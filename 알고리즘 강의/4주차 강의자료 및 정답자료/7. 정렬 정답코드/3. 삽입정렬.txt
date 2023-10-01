@@ -1,0 +1,15 @@
+function solution(nums){  
+  let n = nums.length;
+  for(let i=1; i<n; i++){
+    let tmp = nums[i];
+    let j;
+    for(j = i-1; j>=0; j--){
+      if(nums[j] > tmp) nums[j+1] = nums[j];
+      else break;
+    }
+    nums[j+1] = tmp;
+  }
+  return nums;
+}
+
+console.log(solution([5, 4, 2, 1, 3]));

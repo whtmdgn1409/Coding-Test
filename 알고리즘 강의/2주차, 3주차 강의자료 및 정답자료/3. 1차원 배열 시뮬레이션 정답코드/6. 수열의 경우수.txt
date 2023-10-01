@@ -1,0 +1,25 @@
+function solution(nums){         
+    let answer=0;
+	let n=nums.length;
+	let peak=[];
+	for(let i=1; i<n-1; i++){
+		if(nums[i-1]<nums[i] && nums[i]>nums[i+1]) peak.push(i);
+	}
+	for(let p of peak){
+		let lt=p;
+		let rt=p;
+		let lcnt=0;
+		let rcnt=0;
+		while(lt>0 && nums[lt-1]<nums[lt]){
+			lcnt++;
+			lt--;
+		}
+		while(rt<n-1 && nums[rt]>nums[rt+1]){
+			rcnt++;
+			rt++;
+		}
+		answer+=(lcnt*rcnt);
+	}
+    return answer;
+}
+console.log(solution([1, 3, 2, 5, 7, 4, 2, 5, 1]));

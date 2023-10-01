@@ -1,0 +1,25 @@
+function solution(n, edges){  
+  let answer = n;
+  let graph=Array.from(Array(n+1), ()=>Array());
+  let ch=Array.from({length:n+1}, ()=>0);
+  for(let [a, b] of edges){
+      graph[a].push(b);
+      graph[b].push(a);
+  }
+  let cnt = 0;
+  function DFS(v){
+    cnt++;
+    for(let nv of graph[v]){
+      if(ch[nv]===0){
+        ch[nv] = 1;
+        DFS(nv);
+      }
+    }
+  }
+  ch[1] = 1;
+  DFS(1);
+  return answer - cnt;
+}
+console.log(
+  solution(12, [[1, 2], [1, 7], [1, 8], [1, 6], [8, 11], [11, 12]])
+);

@@ -1,0 +1,11 @@
+function solution(nums){
+	let answer="YES";
+	let n=nums.length;
+	let i=0;
+	while(i<n-1 && nums[i]<nums[i+1]) i++;
+	if(i===0 || i===n-1) return "NO";
+	while(i<n-1 && nums[i]>nums[i+1]) i++;
+	if(i!==n-1) return "NO";
+	return answer;
+}
+console.log(solution([1, 2, 3, 4, 5, 3, 1]));

@@ -1,0 +1,13 @@
+function solution(nums){         
+    let answer=0, score=0;
+    for(let x of nums){
+        if(x===1){
+            score++;
+            answer+=score;
+        }
+        else score=0;
+    }   
+    return answer;
+}
+
+console.log(solution([1, 0, 1, 1, 1, 0, 0, 1, 1, 0]));

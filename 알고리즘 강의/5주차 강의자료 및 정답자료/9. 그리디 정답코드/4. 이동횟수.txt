@@ -1,0 +1,20 @@
+function solution(nums) {
+  let answer=0;
+  let lt=0, rt=nums.length-1;
+  nums.sort((a, b)=>a-b);
+  while(lt<=rt){
+      if(nums[lt]+nums[rt]<=5){
+          answer++;
+          lt++;
+          rt--;
+      }
+      else{
+          answer++;
+          rt--;
+      }
+  }
+  return answer;
+}
+console.log(solution([2, 5, 3, 4, 2, 3]));
+console.log(solution([2, 3, 4, 5]));
+console.log(solution([3, 3, 3, 3, 3]));

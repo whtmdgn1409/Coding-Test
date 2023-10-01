@@ -1,0 +1,14 @@
+def DFS(v, computers, ch, n):
+    ch[v] = 1
+    for i in range(n):
+        if computers[v][i] and ch[i] == 0:
+            DFS(i, computers, ch, n)
+
+def solution(n, computers):
+    answer = 0
+    ch = [0]*n
+    for i in range(n):
+        if ch[i] == 0:
+            answer+=1
+            DFS(i, computers, ch, n)
+    return answer

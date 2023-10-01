@@ -1,0 +1,15 @@
+function solution(cost, m){  
+  let answer = 0;
+  let lt = 0, sum = 0;
+  for(let rt=0; rt<cost.length; rt++){
+      sum+=cost[rt];
+      while(sum>m){
+          sum-=cost[lt];
+          lt++;
+      }
+      answer = Math.max(answer, rt-lt+1);
+  }
+  return answer;
+}
+console.log(solution([0, 150, 100, 0, 150, 0, 70, 140], 350));
+console.log(solution([100, 200, 300, 400, 500, 100], 300));

@@ -1,0 +1,17 @@
+function solution(nums, k){  
+  let answer = nums.reduce((a, b)=>a+b, 0);
+  let m = nums.length-k;
+  let sum = 0;
+  let minS = 30000000;
+  for(let i=0; i<m; i++) sum+=nums[i];
+  minS = sum;
+  let lt = 0;
+  for(let rt=m; rt<nums.length; rt++){
+      sum+=(nums[rt]-nums[lt]);
+      minS = Math.min(minS, sum);
+      lt++;
+  }
+  return answer-minS;
+}
+console.log(solution([2, 3, 7, 1, 2, 1, 5], 4));
+console.log(solution([1, 2, 3, 5, 6, 7, 1, 3, 9], 5));
