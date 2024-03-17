@@ -1,0 +1,29 @@
+const getDotCount = (r,isIncludeBorderCount)=>{
+    let dotCount = 0
+
+    for(let i=1;i<=r;i++){
+        const range = Math.sqrt(r ** 2 - i ** 2)
+        const floorRange = Math.floor(range)
+
+        if(isIncludeBorderCount){
+            dotCount += floorRange
+        }
+        else{
+            if(range === floorRange){
+                dotCount += (floorRange-1)
+            }
+            else{
+                dotCount += floorRange
+            }
+        }
+    }
+
+    dotCount = dotCount * 4 + r * 4 + 1
+    return dotCount
+}
+
+function solution(r1, r2) {
+    const dotR2 = getDotCount(r2,true)
+    const dotR1 = getDotCount(r1,false)
+    return dotR2 - dotR1
+}
